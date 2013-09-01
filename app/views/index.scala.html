@@ -1,7 +1,24 @@
-@(message: String)
+@()(implicit flash: Flash)
 
-@main("Welcome to Play 2.1") {
+@import helper._
+
+@form(action = routes.Application.missionUpload, 'enctype -> "multipart/form-data") {
     
-    @play20.welcome(message)
+    <input type="file" name="mission">
     
+    <p>
+        <input type="submit">
+    </p>
+    
+	@flash.get("success").map { message =>
+        <p class="success">
+            @message
+        </p>
+    }
+    
+    @flash.get("error").map { message =>
+    	<p class="error">
+    		@message
+    	</p>
+    }
 }

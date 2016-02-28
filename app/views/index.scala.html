@@ -2,12 +2,15 @@
 
 @import helper._
 
-@form(action = routes.Application.missionUpload, 'enctype -> "multipart/form-data") {
+@main("Upload") {
+  @form(action = routes.Application.missionUpload, 'enctype -> "multipart/form-data") {
+    
+    <h1>Mission Upload</h1>
     
     <input type="file" name="mission">
     
     <p>
-        <input type="submit">
+        <input type="submit" value="Upload Mission">
     </p>
     
 	@flash.get("success").map { message =>
@@ -21,4 +24,5 @@
     		@message
     	</p>
     }
+  }
 }

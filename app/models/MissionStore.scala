@@ -4,8 +4,6 @@ import play.api.Play
 import play.api.libs.Files.TemporaryFile
 import java.io.File
 
-case class StoreFailure(message:String)
-
 class StoreFailedException(val message:String) extends Exception(message)
 
 object MissionStore {
